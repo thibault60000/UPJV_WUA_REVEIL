@@ -26,10 +26,16 @@
                 <ListView x:ConnectionId='2' x:Name="listView" Margin="0,20,0,0" ItemsSource="{Binding alarm}" SelectedItem="{Binding SelectedAlarm, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical" Padding="20,10" Background="#FFDC6161">
+                            <StackPanel Orientation="Vertical" Background="#FFDC6161" Margin="0,0,0,10">
                                 <TextBlock Text="{Binding Titre}" FontWeight="bold" FontSize="16" Foreground="#FFF" />
                                 <StackPanel>
                                     <TextBlock Text="{Binding Date}" Foreground="#EEEEEE" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Foreground="#EEEEEE">
+                                        <Run Text="Réptitions: " />
+                                        <Run Text="{Binding Repetition}" />
+                                    </TextBlock>
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>

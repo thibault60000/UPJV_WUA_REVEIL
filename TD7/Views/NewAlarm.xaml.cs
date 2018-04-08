@@ -102,8 +102,9 @@ namespace TD7.Views
                 // Si la date est correcte
                 else
                 {
+                    string alarmeTitle = alm_title.Text;
                     // Déclaration du toast
-                    string title = "REVEIL TD 7 !";
+                    string title = alarmeTitle;
                     string message = alm_title.Text;
                     string imgURL = "ms-appx:///Assets/clock-alert.png";
 
@@ -143,6 +144,10 @@ namespace TD7.Views
                     toastNotifier1.AddToSchedule(customAlarmScheduledToast);
                     var x = new MessageDialog("Alarme créée");
                     await x.ShowAsync();
+
+                    ViewModel.AddAlarmList(title, myDate1, snooze);
+
+
                 }
 
             }

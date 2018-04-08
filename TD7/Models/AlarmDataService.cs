@@ -9,17 +9,13 @@ namespace TD7.Models
     class AlarmDataService : Models.Interfaces.IAlarmDataService
     {
         // List d'alarmes 
-        private List<Alarm> alarmes = null;
+        private List<Alarm> alarmes = new List<Alarm>();
         private int arraySize;
 
         public async Task<Alarm[]> GetAlarmAsync()
         {             
             return await Task.Run(() =>
             {
-                alarmes = new List<Alarm>();
-                DateTime Date = new DateTime(2008, 3, 1, 7, 0, 0);
-                AddAlarmSync("Mon Alarme", Date, 2);
-
                 // console.WriteLine(date1.ToString("F", new System.Globalization.CultureInfo("fr-FR")));
                 // Displays samedi 1 mars 2008 07:00:00
                 return alarmes.ToArray();

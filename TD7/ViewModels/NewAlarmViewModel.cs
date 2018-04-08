@@ -14,6 +14,11 @@ namespace TD7.ViewModels
         {
             this.BackMainCommand = new RelayCommand(BackMainExecute, CanBackMainExecute);
         }
+
+        public void AddAlarmList(string title, DateTime date, int repetition)
+        {
+            this.DataService.AddAlarmSync(title, date, repetition);
+        }
     
 
         public RelayCommand BackMainCommand { get; private set; }

@@ -10,5 +10,6 @@ namespace TD7.Models.Interfaces
     {
         Task<Alarm[]> GetAlarmAsync();
         Task<Alarm> GetAlarmAsync(int cleAlarm);
+        void AddAlarmSync(string titre, DateTime date, int repetition);
     }
 }

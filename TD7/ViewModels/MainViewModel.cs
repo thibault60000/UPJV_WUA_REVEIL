@@ -18,12 +18,10 @@ namespace TD7.ViewModels
             this.GoToAlarmCommand = new RelayCommand(GoToAlarmExecute, CanGoToAlarmExecute);
         }
 
-
         protected async override Task OnLoadedAsync()
         {
             this.alarm = await this.DataService.GetAlarmAsync();
         }
-
 
         private Models.Alarm[] _alarm = null;
         public Models.Alarm[] alarm
