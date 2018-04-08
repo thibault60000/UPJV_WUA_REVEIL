@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="TD7.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TD7.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:vm="using:TD7.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="System.Windows"
+    mc:Ignorable="d">
+
+
+    <Page.Resources>
+        <vm:MainViewModel x:Key="ViewModel" />
+    </Page.Resources>
+
+    <Grid DataContext="{StaticResource ViewModel}" Background="White">
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,80,0,0">
+            <TextBlock Text="BONJOUR, il est" FontSize="22" Width="367" Foreground="#FF272323" TextAlignment="Center"></TextBlock>
+            <TextBlock x:ConnectionId='1' x:Name="current_time" Text=" " FontSize="36" TextAlignment="Center" Width="367" Margin="0,10,0,0" Foreground="#FF231E1E"/>
+            <Button Content="Créer une nouvelle alarme" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Bottom" Background="#FF1D54A4" Foreground="White" Command="{Binding GoToAlarmCommand}" />
+
+
+            <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                <ListView x:ConnectionId='2' x:Name="listView" Margin="0,20,0,0" ItemsSource="{Binding alarm}" SelectedItem="{Binding SelectedAlarm, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Padding="20,10" Background="#FFF5CF7C">
+                                <TextBlock Text="{Binding Titre}" FontWeight="bold" FontSize="16" Foreground="#FF1D54A4" />
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Date}" Foreground="#FF1D54A4" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+
+        </StackPanel>
+
+
+    </Grid>
+</Page>
+
